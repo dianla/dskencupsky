@@ -40,7 +40,7 @@ cryptsetup is already the newest version (2:2.2.2-3ubuntu2.3).
 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
 Creating main file encryptedDisk.iso with 30000M
 Initialiting encryptedDisk... (Reply YES in Uppercase) And Your Secret Phrasse!
-                              =================================================
+
 WARNING!
 ========
 This will overwrite data on /mnt/encryptedDisk.iso irrevocably.
