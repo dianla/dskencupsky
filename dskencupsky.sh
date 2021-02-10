@@ -11,7 +11,7 @@ DSKENCNAME="encryptedDisk"
 DSKPATH="/mnt"
 BCHFILESIZE="500MB"
 DSKENCSIZE="30000M"
-#SECRETPHRASSE="DRSs_Pi1bn+e?5j:-#wj/7]Jf0F\*U5&meY;"
+#SECRETPHRASE="DRSs_Pi1bn+e?5j:-#wj/7]Jf0F\*U5&meY;"
 
 if [ $# -eq 0 ]
 then
@@ -73,9 +73,9 @@ sudo apt-get install cryptsetup
 echo "Creating main file $DSKENCNAME.iso with $DSKENCSIZE"
 fallocate -l $DSKENCSIZE $DSKPATH/$DSKENCNAME.'iso'
 
-echo "Initialiting $DSKENCNAME... (Reply YES in Uppercase) And Your Secret Phrasse"
+echo "Initialiting $DSKENCNAME... (Reply YES in Uppercase) And Your Secret Phrase"
 sudo cryptsetup -y luksFormat $DSKPATH/$DSKENCNAME.'iso'
-echo "Openning $DSKENCNAME ... Write your Phrasse bellow"
+echo "Openning $DSKENCNAME ... Write your Phrase bellow"
 sudo cryptsetup luksOpen $DSKPATH/$DSKENCNAME.'iso' $DSKENCNAME
 echo "Formating /dev/mapper/$DSKENCNAME"
 sudo mkfs.ext4 /dev/mapper/$DSKENCNAME
@@ -120,7 +120,7 @@ for i in `cat $DSKPATH/files_uploaded.siasky |awk -F 'skylink":"' '{ print $2}'|
 echo "Composing original Data $DSKPATH/$DSKENCNAME"
 ls -ltrs $DSKPATH/download/ |awk '{print $10}' > /tmp/$DSKENCNAME.downloaded
 for i in `cat /tmp/$DSKENCNAME.downloaded`; do cat $DSKPATH/download/$i >> $DSKPATH/$DSKENCNAME.'iso';done
-echo "All done! Active your Backup Volume $DSKPATH/$DSKENCNAME.iso using Your security Phrasse"
+echo "All done! Active your Backup Volume $DSKPATH/$DSKENCNAME.iso using Your security Phrase"
 sudo cryptsetup luksOpen $DSKPATH/$DSKENCNAME.'iso' $DSKENCNAME
 echo "Mounting Encrypted Disk..."
 mkdir -p $DSKPATH/$DSKENCNAME
@@ -137,7 +137,7 @@ rm -rf $DSKPATH/$DSKENCNAME.'iso'
 echo "Rebuilding Data $DSKPATH/$DSKENCNAME"
 ls -ltrs $DSKPATH/split/ |awk '{print $10}' > /tmp/$DSKENCNAME.downloaded1
 for i in `cat /tmp/$DSKENCNAME.downloaded1`; do cat $DSKPATH/split/$i >> $DSKPATH/$DSKENCNAME.'iso';done
-echo "All done! Active your Backup Volume $DSKPATH/$DSKENCNAME.iso using Your security Phrasse"
+echo "All done! Active your Backup Volume $DSKPATH/$DSKENCNAME.iso using Your security Phrase"
 sudo cryptsetup luksOpen $DSKPATH/$DSKENCNAME.'iso' $DSKENCNAME
 echo "Mounting Encrypted Disk..."
 mkdir -p $DSKPATH/$DSKENCNAME
