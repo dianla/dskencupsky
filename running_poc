@@ -1,5 +1,7 @@
 This script uses the most simple cryptsetup LUKS encryption configuration. Of course, you can improve this script for your security requeriments.
 
+If you want only download my data, use this Phrase for decrypt disk: DRSs_Pi1bn+e?5j:-#wj/7]Jf0F\*U5&meY;
+
 Usage:
 
  -i Initialited A new Disk Encrypted
