@@ -11,6 +11,8 @@ DSKENCNAME="encryptedDisk"
 DSKPATH="/mnt"
 BCHFILESIZE="500MB"
 DSKENCSIZE="30000M"
+
+## Select your prefered Portal for upload your information. I tesed with siasky.net and skyportal.xyz and worked fine.
 #PORTAL="https://skynet.developmomentum.com"
 #PORTAL="https://sialoop.net"
 #PORTAL="https://skynet.luxor.tech"
